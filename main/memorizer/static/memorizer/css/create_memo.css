@@ -1,0 +1,109 @@
+::placeholder {
+  text-align: left;
+}
+
+.map {
+  width: 450px;
+  height: 450px;
+}
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.btn button {
+  font-size: 18px;
+  padding: 5px;
+  border: transparent 1px solid;
+  transition: border 0.3s;
+}
+.btn button:hover {
+  border: #d4d4d4 1px solid;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.input input {
+  width: 100%;
+  height: 100%;
+}
+
+.area-input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.area-input textarea {
+  width: 100%;
+  height: 100%;
+  resize: none;
+}
+
+.header {
+  font-size: 20px;
+}
+
+.memo {
+  border: #acacac 1px solid;
+  border-radius: 15px;
+  padding: 10px;
+}
+.memo__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-top: #acacac 1px solid;
+  border-bottom: #acacac 1px solid;
+  margin-bottom: 10px;
+}
+.memo .map-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: red;
+  height: 0;
+}
+.memo .map-info.active {
+  border-top: #acacac 1px solid;
+  height: auto;
+  padding: 5px;
+}
+.memo__text-input {
+  margin-top: 5px;
+  height: 40px;
+  border-top: #acacac 1px solid;
+  border-bottom: #acacac 1px solid;
+}
+.memo__area-input {
+  margin-top: 5px;
+  height: 120px;
+  border-bottom: #acacac 1px solid;
+}
+.memo__btn {
+  border-bottom: #acacac 1px solid;
+  padding: 10px 0;
+}
+
+/*# sourceMappingURL=create_memo.css.map */

@@ -1,0 +1,46 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'memorizer/css/styleNull.css' %}?{{ csrf_token }}">
+    <link rel="stylesheet" href="{% static 'memorizer/css/view_memo.css' %}?{{ csrf_token }}">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=cd60fb83-45e2-4ca5-94ec-aa37fdeac902&lang=ru_RU"
+            type="text/javascript"></script>
+    <title>Воспоминание</title>
+</head>
+<body>
+
+<main>
+    <div class="memo">
+        <div class="header memo__header">Воспоминание</div>
+        <div class="map" id="map"></div>
+        <div class="map-info" id="mapInfo"></div>
+        <div class="input memo__text-input">
+            <label for="name"></label><input type="text" id="name" value="{{ name }}" placeholder="Название воспоминания">
+        </div>
+        <div class="area-input memo__area-input">
+            <label for="comment"></label><textarea id="comment" placeholder="Комментарий...">{{ comment }}</textarea>
+        </div>
+        <div class="btn btn--save memo__btn">
+            <button onclick="sendForm()">Сохранить</button>
+        </div>
+        <div class="btn btn--cancel memo__btn">
+            <button onclick="mainPageRedirect()">Отмена</button>
+        </div>
+    </div>
+</main>
+
+<script>
+    const CSRF_TOKEN = '{{ csrf_token }}';
+    const baseUrl = window.location.protocol + "//" + window.location.host;
+    const position_x = {{ position_x }};
+    const position_y = {{ position_y }};
+</script>
+<script src="{% static 'memorizer/js/fetch.js' %}?{{ csrf_token }}"></script>
+<script src="{% static 'memorizer/js/view_memo.js' %}?{{ csrf_token }}"></script>
+</body>
+</html>
