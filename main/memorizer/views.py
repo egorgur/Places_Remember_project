@@ -14,6 +14,12 @@ from memorizer.models import Memo
 def redirect_to_main(request):
     return HttpResponseRedirect("/memorizer/memories")
 
+def auth_view(request):
+    return render(
+        request=request,
+        template_name="memorizer/authorization.html",
+        context={},
+    )
 
 def memories_menu_view(request):
     if request.method == "GET":

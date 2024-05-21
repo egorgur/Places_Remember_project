@@ -25,7 +25,7 @@ function init() {
         controls: [],
     }, {
         searchControlProvider: 'yandex#search',
-        suppressMapOpenBlock: true
+        suppressMapOpenBlock: true,
     });
 
     var myPlacemark = createPlacemark([position_x,position_y])

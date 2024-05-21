@@ -25,9 +25,10 @@ SECRET_KEY = 'django-insecure-*x7@4yil0#ej56ftjj-%xw@n87-fgy@fzrpeg2$9jljmuj*m_n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['77.222.37.206', 'localhost']
+ALLOWED_HOSTS = ['.testotheca.online', '77.222.37.206', 'localhost', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['http://*.testotheca.online']
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 # Application definition
 
 INSTALLED_APPS = [

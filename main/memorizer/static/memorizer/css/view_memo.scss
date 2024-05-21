@@ -1,7 +1,7 @@
 @import "mixins";
 @import "colors";
 
-*{
+* {
   font-size: 1em;
 }
 
@@ -21,11 +21,11 @@
   button {
     font-size: 18px;
     padding: 5px;
-    border: transparent 1px solid;
-    transition: border $transition;
+    background: $green_light_4_accent;
+    transition: background-color $transition;
 
     &:hover {
-      border: $white 1px solid;
+      background-color: $green_light_4;
     }
   }
 }
@@ -35,6 +35,7 @@ main {
   @include flex-center;
   width: 100%;
   height: 100%;
+  background: $white;
 }
 
 .input {
@@ -45,6 +46,7 @@ main {
   input {
     width: 100%;
     height: 100%;
+    background: none;
   }
 }
 
@@ -56,7 +58,8 @@ main {
   textarea {
     width: 100%;
     height: 100%;
-     resize: none;
+    resize: none;
+    background: none;
     scrollbar-width: thin;
     scrollbar-color: $white transparent;
   }
@@ -68,7 +71,7 @@ main {
 }
 
 .memo {
-  border: $grey 1px solid;
+  border: $green_light_4 2px solid;
   border-radius: 15px;
   padding: 10px;
 
@@ -82,13 +85,14 @@ main {
 
   }
 
-  .map-info{
+  .map-info {
     @include flex-row;
     @include flex-center;
     overflow: hidden;
     color: red;
     height: 0;
-    &.active{
+
+    &.active {
       border-top: $grey 1px solid;
       height: auto;
       padding: 5px;
@@ -96,14 +100,14 @@ main {
   }
 
   &__text-input {
-     margin-top: 5px;
+    margin-top: 5px;
     height: 40px;
     border-top: $grey 1px solid;
     border-bottom: $grey 1px solid;
   }
 
   &__area-input {
-     margin-top: 5px;
+    margin-top: 5px;
     height: 120px;
     border-bottom: $grey 1px solid;
   }

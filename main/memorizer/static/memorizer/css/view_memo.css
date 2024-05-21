@@ -20,11 +20,11 @@
 .btn button {
   font-size: 18px;
   padding: 5px;
-  border: transparent 1px solid;
-  transition: border 0.3s;
+  background: #e6ead0;
+  transition: background-color 0.3s;
 }
 .btn button:hover {
-  border: #d4d4d4 1px solid;
+  background-color: #c0c69b;
 }
 
 main {
@@ -34,6 +34,7 @@ main {
   align-items: center;
   width: 100%;
   height: 100%;
+  background: #f6f6f5;
 }
 
 .input {
@@ -46,6 +47,7 @@ main {
 .input input {
   width: 100%;
   height: 100%;
+  background: none;
 }
 
 .area-input {
@@ -59,8 +61,9 @@ main {
   width: 100%;
   height: 100%;
   resize: none;
+  background: none;
   scrollbar-width: thin;
-  scrollbar-color: #d4d4d4 transparent;
+  scrollbar-color: #f6f6f5 transparent;
 }
 
 .header {
@@ -68,7 +71,7 @@ main {
 }
 
 .memo {
-  border: #acacac 1px solid;
+  border: #c0c69b 2px solid;
   border-radius: 15px;
   padding: 10px;
 }
