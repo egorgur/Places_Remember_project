@@ -15,6 +15,15 @@
   flex-grow: 1;
 }
 
+.user-name {
+  font-size: 16px;
+}
+.user-icon {
+  margin-left: 10px;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
 .add-memo-button {
   position: fixed;
   top: 94%;
@@ -38,6 +47,22 @@
   top: 93.6%;
 }
 
+.leave-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 14px;
+  width: 60px;
+  height: 35px;
+  border: #a7110b 1px solid;
+  transition: background-color 0.3s;
+}
+.leave-btn:hover {
+  background-color: #a7110b;
+  cursor: pointer;
+}
+
 .no-memo {
   display: flex;
   flex-direction: row;
@@ -46,7 +71,6 @@
   width: 400px;
   height: 200px;
   border-radius: 15px;
-  background: #333d32;
   border: #acacac 1px solid;
 }
 
@@ -90,6 +114,7 @@
 }
 .memo__map {
   pointer-events: none;
+  flex-shrink: 0;
   width: 360px;
   height: 360px;
   border-left: #333d32 1px solid;

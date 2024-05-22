@@ -21,11 +21,13 @@
 
 .user {
   &-name {
-
+    font-size: 16px;
   }
 
   &-icon {
-
+    margin-left: 10px;
+    border-radius: 100%;
+    overflow: hidden;
   }
 }
 
@@ -53,13 +55,28 @@
   }
 }
 
+.leave-btn {
+  @include flex-row;
+  @include flex-center;
+  margin-left: 14px;
+  width: 60px;
+  height: 35px;
+  border: #a7110b 1px solid;
+  transition: background-color $transition;
+
+  &:hover {
+    background-color: #a7110b;
+    cursor: pointer;
+  }
+}
+
 .no-memo {
   @include flex-row;
   @include flex-center;
   width: 400px;
   height: 200px;
   border-radius: 15px;
-  background: $green_dark_2;
+  //background: $green_dark_2;
   border: $grey 1px solid;
 }
 
@@ -82,15 +99,17 @@
     @include flex-column;
 
     align-items: center;
-    &-name{
+
+    &-name {
       @include flex-row;
       align-items: center;
       width: 100%;
-    min-height: 50px;
+      min-height: 50px;
       padding: 10px;
-      border-bottom: $green_dark_2  1px solid;
+      border-bottom: $green_dark_2 1px solid;
     }
-    &-comment{
+
+    &-comment {
       overflow-y: scroll;
       white-space: pre-wrap;
       @include flex-row;
@@ -102,13 +121,15 @@
 
   &__map {
     pointer-events: none;
+    flex-shrink: 0;
     width: 360px;
     height: 360px;
-    border-left: $green_dark_2  1px solid;
+    border-left: $green_dark_2 1px solid;
   }
 
   transition: background-color $transition;
-  &:hover{
+
+  &:hover {
     cursor: pointer;
     background-color: $green_light_4_accent;
   }

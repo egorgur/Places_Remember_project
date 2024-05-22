@@ -6,8 +6,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'memorizer/css/styleNull.css' %}?{{ csrf_token }}">
-    <link rel="stylesheet" href="{% static 'memorizer/css/authorization.css' %}?{{ csrf_token }}">
+    <link rel="stylesheet" href="{% static 'vk_auth/css/styleNull.css' %}?{{ csrf_token }}">
+    <link rel="stylesheet" href="{% static 'vk_auth/css/authorization.css' %}?{{ csrf_token }}">
+    <script src="https://unpkg.com/@vkid/sdk@latest/dist-sdk/umd/index.js"></script>
     <title>Авторизация</title>
 </head>
 <body>
@@ -17,8 +18,9 @@
         <div class="auth__info-header">Memorizer</div>
         <div class="auth__info-text">Этот сервис позволяет сохранять ваши воспоминания о посещённых местах</div>
     </div>
-    <div class="auth__vk-btn">Войти с помощью ВК</div>
+    <div class="auth__vk-btn" id="VkIdSdkOneTap"></div>
 </div>
-
+<script>const VK_APP_ID = {{ VK_APP_ID }};</script>
+<script src="{% static 'vk_auth/js/authorization.js' %}?{{ csrf_token }}"></script>
 </body>
 </html>

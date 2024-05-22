@@ -5,7 +5,6 @@ from . import views
 
 urlpatterns = [
     path("", views.redirect_to_main, name="redirect_to_main"),
-    path("auth/", views.auth_view, name="auth"),
     path("memories/", views.memories_menu_view, name="collection"),
     path("memories/create", views.create_memo_view, name="create_collection_view"),
     path("memories/<str:pk>", views.memo_view, name="collection_view"),

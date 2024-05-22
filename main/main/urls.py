@@ -19,7 +19,8 @@ from django.urls import path, include
 from memorizer import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     path("memorizer/", include(("memorizer.urls", "memorizer"))),
+    path("auth/",include(("vk_auth.urls","vk_auth"))),
     path("", views.redirect_to_main, name="redirect_to_main")
 ]

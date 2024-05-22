@@ -56,3 +56,8 @@ function redirectToMemo(memoId){
     const url = baseUrl + "/memorizer/memories/" + memoId
     location.href = url
 }
+
+function leaveAccount(){
+     const url = baseUrl + "/auth"
+    location.href = url
+}

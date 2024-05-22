@@ -9,20 +9,32 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect, FileRe
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from memorizer.models import Memo
+from vk_auth.views import get_user_vk_data, update_user_vk_data
+from vk_auth.models import UserVkData
 
 
 def redirect_to_main(request):
     return HttpResponseRedirect("/memorizer/memories")
 
-def auth_view(request):
-    return render(
-        request=request,
-        template_name="memorizer/authorization.html",
-        context={},
-    )
 
 def memories_menu_view(request):
+    if request.user.is_anonymous or not request.user.is_authenticated:
+        return HttpResponseRedirect("/auth/")
+    print(request)
     if request.method == "GET":
+        vk_sdk_version = 5.199
+        user_vk_data = UserVkData.objects.get(user=request.user)
+        access_token = user_vk_data.access_token
+        vk_id = user_vk_data.vk_id
+        response = get_user_vk_data(vk_sdk_version, access_token, vk_id)
+        if "error_code" not in response:
+            first_name = response["first_name"]
+            last_name = response["last_name"]
+            photo_50 = response["photo_50"]
+            print(vk_id, first_name, last_name, photo_50)
+            update_user_vk_data(vk_id, first_name, last_name, access_token)
+        else:
+            return HttpResponseRedirect("/auth/")
         has_memories = False
         memories = list(Memo.objects.filter(user=request.user).values())
         print(memories)
@@ -32,7 +44,9 @@ def memories_menu_view(request):
             request=request,
             template_name="memorizer/memories.html",
             context={
-                "username": request.user.username,
+                "first_name": first_name,
+                "last_name": last_name,
+                "photo_href": photo_50,
                 "has_memories": has_memories,
                 "memories": memories
             }
@@ -40,6 +54,9 @@ def memories_menu_view(request):
 
 
 def memo_view(request, pk):
+    if request.user.is_anonymous or not request.user.is_authenticated:
+        return HttpResponseRedirect("/auth/")
+    print(request)
     if request.method == "GET":
         memo = Memo.objects.get(id=pk)
         return render(
@@ -77,6 +94,8 @@ def memo_view(request, pk):
 
 
 def create_memo_view(request):
+    if request.user.is_anonymous or not request.user.is_authenticated:
+        return HttpResponseRedirect("/auth/")
     print(request)
     if request.method == "GET":
         return render(

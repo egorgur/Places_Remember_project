@@ -18,8 +18,9 @@
         <div class="github-link"><a href="https://github.com/egorgur/Places_Remember_project"><img
                 src="{% static 'memorizer/img/github.png' %}" alt=""></a></div>
         <div class="spacer"></div>
-        <div class="user-name">{{ username }}</div>
-        <div class="user-icon"><a href=""><img src="" alt="{{ username }} icon"></a></div>
+        <div class="user-name">{{ first_name }} {{ last_name }}</div>
+        <div class="user-icon"><img src="{{ photo_href }}" alt="ICON"></div>
+        <div class="leave-btn" onclick="leaveAccount()">Выйти</div>
     </div>
 </header>
 
