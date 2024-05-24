@@ -22,7 +22,7 @@ if platform.system() == "Windows":
 else:
     DEV = False
 
-if os.environ.get("GIT_ACTIONS_TESTING_PROCEDURE"):
+if os.environ.get("GIT_ACTIONS_TESTING_PROCEDURE") == "TRUE":
     DEV = True
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
