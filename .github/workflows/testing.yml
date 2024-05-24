@@ -23,8 +23,8 @@ jobs:
          ruff check
       - name: coverage report
         run: |
-          coverage run manage.py test
+          coverage run main/manage.py test
           coverage report
       - name: Django tests
         run: |
-          python manage.py test memorizer.tests
+          python main/manage.py test memorizer.tests
