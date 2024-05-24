@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-if platform.system() == "Windows":
+if platform.system() != "Windows":
     DEV = True
 else:
     DEV = False
