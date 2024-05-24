@@ -58,6 +58,8 @@ Technologies used in the project
 - Web-Framework: **Django** | _web framework_
 - Frontend: html js scss | _basic Frontend_
 - Git-Actions: Django Tests & Ruff linter | run tests and lint checks on push
+- Docker
+- Nginx
 
 Known Issues
 ===
