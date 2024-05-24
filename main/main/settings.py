@@ -17,10 +17,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-if platform.system() == "Windows" or os.environ.get("GIT_ACTIONS_TESTING_PROCEDURE"):
+if platform.system() == "Windows":
     DEV = True
 else:
     DEV = False
+
+if os.environ.get("GIT_ACTIONS_TESTING_PROCEDURE"):
+    DEV = True
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
