@@ -18,6 +18,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r main/requirements.txt
+          export GIT_ACTIONS_TESTING_PROCEDURE=TRUE
       - name: Lint with ruff
         run: |
          ruff check

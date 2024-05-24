@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-if platform.system()=="Windows":
+if platform.system() == "Windows" or os.environ.get("GIT_ACTIONS_TESTING_PROCEDURE"):
     DEV = True
 else:
     DEV = False
