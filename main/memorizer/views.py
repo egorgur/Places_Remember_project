@@ -1,13 +1,6 @@
 import json
-
 from django.shortcuts import render
-
-# Create your views here.
-
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse, HttpResponseRedirect, FileResponse
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse, HttpResponseRedirect
 from memorizer.models import Memo
 from vk_auth.views import get_user_vk_data, update_user_vk_data
 from vk_auth.models import UserVkData
@@ -60,6 +53,8 @@ def memo_view(request, pk):
     if request.method == "GET":
         if Memo.objects.filter(id=pk).exists():
             memo = Memo.objects.get(id=pk)
+            if memo.user != request.user:
+                return HttpResponseRedirect("/memorizer/memories")
             return render(
                 request=request,
                 template_name="memorizer/view_memo.html",

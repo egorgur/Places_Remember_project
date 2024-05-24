@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import os, platform
+import os
+import platform
 from dotenv import load_dotenv
 
 load_dotenv()

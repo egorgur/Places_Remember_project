@@ -1,11 +1,11 @@
 import json
 
-from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from main.settings import VK_APP_SERVER_KEY, VK_APP_ID
 from django.contrib.auth.models import User
 from .models import UserVkData
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import login, logout
 
 import requests
 
@@ -69,7 +69,7 @@ def exchange_silent_on_access_token(api_version, silent_token, uuid, server_toke
         "access_token": server_token,
         "uuid": uuid
     }
-    response = requests.get(f"https://api.vk.com/method/auth.exchangeSilentAuthToken/", params=params).json()
+    response = requests.get("https://api.vk.com/method/auth.exchangeSilentAuthToken/", params=params).json()
     print(response)
     if "error" in response:
         return response["error"]
@@ -84,7 +84,7 @@ def get_user_vk_data(api_version, access_token, user_id):
         "user_ids": user_id,
         "fields": "first_name,last_name,photo_50"
     }
-    response = requests.get(f"https://api.vk.com/method/users.get/", params=params).json()
+    response = requests.get("https://api.vk.com/method/users.get/", params=params).json()
     print(response)
     if "error" in response:
         return response["error"]

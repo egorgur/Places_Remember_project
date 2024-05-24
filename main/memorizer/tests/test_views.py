@@ -26,12 +26,12 @@ class MemoViewsTest(TestCase):
         self.assertEqual(response.url, "/auth/")
 
     def test_memo_view(self):
-        login = self.client.login(username="some vk_id", password="123")
+        self.client.login(username="some vk_id", password="123")
         response = self.client.get(reverse("memorizer:view_memo", kwargs={"pk": 2}))
         self.assertEqual(response.status_code, 200)
 
     def test_memo_data_update(self):
-        login = self.client.login(username="some vk_id", password="123")
+        self.client.login(username="some vk_id", password="123")
         data = urlencode({"name": "testMemoAgainUpdate",
                           "comment": "testCommentUpdate",
                           "position": json.dumps({
@@ -49,7 +49,7 @@ class MemoViewsTest(TestCase):
 
     def test_memo_deletion(self):
         user = User.objects.get(username="some vk_id")
-        login = self.client.login(username="some vk_id", password="123")
+        self.client.login(username="some vk_id", password="123")
         response = self.client.get(reverse("memorizer:delete_memo", kwargs={"pk": 2}))
         memo_exists = Memo.objects.filter(user=user).exists()
         self.assertEqual(response.status_code, 302)
@@ -57,8 +57,8 @@ class MemoViewsTest(TestCase):
         self.assertEqual(memo_exists, False)
 
     def test_memo_creation(self):
-        user = User.objects.get(username="some vk_id")
-        login = self.client.login(username="some vk_id", password="123")
+        User.objects.get(username="some vk_id")
+        self.client.login(username="some vk_id", password="123")
         data = urlencode({"name": "testMemoAgain",
                           "comment": "testComment",
                           "position": {

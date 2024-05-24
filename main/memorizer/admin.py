@@ -1,5 +1,5 @@
 from django.contrib import admin
-from memorizer.models import *
+from memorizer.models import Memo
 
 
 admin.site.register(Memo)
