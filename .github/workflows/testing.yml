@@ -25,10 +25,10 @@ jobs:
       - name: Lint with ruff
         run: |
          ruff check
+      - name: Django tests
+        run: |
+          python main/manage.py test memorizer.tests
       - name: coverage report
         run: |
           coverage run main/manage.py test
           coverage report
-      - name: Django tests
-        run: |
-          python main/manage.py test memorizer.tests
