@@ -20,7 +20,8 @@
         <div class="map" id="map"></div>
         <div class="map-info" id="mapInfo"></div>
         <div class="input memo__text-input">
-            <label for="name"></label><input type="text" id="name" value="{{ name }}" placeholder="Название воспоминания">
+            <label for="name"></label><input type="text" id="name" value="{{ name }}"
+                                             placeholder="Название воспоминания">
         </div>
         <div class="area-input memo__area-input">
             <label for="comment"></label><textarea id="comment" placeholder="Комментарий...">{{ comment }}</textarea>
@@ -31,8 +32,25 @@
         <div class="btn btn--cancel memo__btn">
             <button onclick="mainPageRedirect()">Отмена</button>
         </div>
+        <div class="btn btn--delete memo__btn">
+            <button onclick="deleteConfirmModal.open()">Удалить</button>
+        </div>
     </div>
 </main>
+<div class="overlay" id="overlay"></div>
+<div class="modal" id="deleteModal">
+    <div class="modal__header">
+        Вы точно хотите удалить воспоминание?
+    </div>
+    <div class="modal__btns">
+        <div class="btn">
+            <button onclick="deleteConfirmModal.close()">Отмена</button>
+        </div>
+        <div class="btn btn--delete">
+            <button onclick="deleteConfirmModal.deleteRedirect()">Удалить</button>
+        </div>
+    </div>
+</div>
 
 <script>
     const CSRF_TOKEN = '{{ csrf_token }}';

@@ -28,13 +28,13 @@ function init() {
         suppressMapOpenBlock: true,
     });
 
-    var myPlacemark = createPlacemark([position_x,position_y])
+    var myPlacemark = createPlacemark([position_x, position_y])
     myMap.geoObjects.add(myPlacemark);
     myPlacemark.events.add('dragend', function (e) {
-                getAddress(myPlacemark.geometry.getCoordinates());
-                parceCoordinates(myPlacemark.geometry.getCoordinates())
-                console.log(PlaceMarkCoordinates)
-            });
+        getAddress(myPlacemark.geometry.getCoordinates());
+        parceCoordinates(myPlacemark.geometry.getCoordinates())
+        console.log(PlaceMarkCoordinates)
+    });
     getAddress(myPlacemark.geometry.getCoordinates());
 
     // Слушаем клик на карте.
@@ -142,5 +142,22 @@ function sendForm() {
                 console.log(err)
             })
 
+    }
+}
+
+
+const deleteConfirmModal = {
+    element: document.getElementById("deleteModal"),
+    overlay: document.getElementById("overlay"),
+    open() {
+        this.element.classList.add("active")
+        this.overlay.classList.add("active")
+    },
+    close() {
+        this.element.classList.remove("active")
+        this.overlay.classList.remove("active")
+    },
+    deleteRedirect(){
+        location.href = window.location.href + "/delete"
     }
 }

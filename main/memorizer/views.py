@@ -58,17 +58,20 @@ def memo_view(request, pk):
         return HttpResponseRedirect("/auth/")
     print(request)
     if request.method == "GET":
-        memo = Memo.objects.get(id=pk)
-        return render(
-            request=request,
-            template_name="memorizer/view_memo.html",
-            context={
-                "name": memo.name,
-                "comment": memo.text,
-                "position_x": memo.position_x,
-                "position_y": memo.position_y,
-            }
-        )
+        if Memo.objects.filter(id=pk).exists():
+            memo = Memo.objects.get(id=pk)
+            return render(
+                request=request,
+                template_name="memorizer/view_memo.html",
+                context={
+                    "name": memo.name,
+                    "comment": memo.text,
+                    "position_x": memo.position_x,
+                    "position_y": memo.position_y,
+                }
+            )
+        else:
+            return HttpResponseRedirect("/memorizer/memories")
     if request.method == "POST":
         try:
             name = request.POST["name"]
@@ -78,8 +81,8 @@ def memo_view(request, pk):
             memo = Memo.objects.get(id=pk)
             memo.name = name
             memo.text = comment
-            memo.position_x = position['x']
-            memo.position_y = position['y']
+            memo.position_x = position["x"]
+            memo.position_y = position["y"]
             memo.save()
             response = {
                 "success": True
@@ -126,3 +129,14 @@ def create_memo_view(request):
                 "error": repr(e)
             }
         return JsonResponse(response)
+
+
+def delete_memo(request, pk):
+    if request.user.is_anonymous or not request.user.is_authenticated:
+        return HttpResponseRedirect("/auth/")
+    print(request)
+    if request.method == "GET":
+        if Memo.objects.filter(id=pk).exists() and (Memo.objects.get(id=pk).user == request.user):
+            memo = Memo.objects.get(id=pk)
+            memo.delete()
+        return HttpResponseRedirect("/memorizer/memories")

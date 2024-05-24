@@ -21,10 +21,21 @@
   font-size: 18px;
   padding: 5px;
   background: #e6ead0;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 .btn button:hover {
   background-color: #c0c69b;
+}
+.btn--delete button {
+  font-size: 18px;
+  padding: 5px;
+  background: #e6ead0;
+  color: #a7110b;
+  transition: background-color 0.3s, color 0.3s;
+}
+.btn--delete button:hover {
+  background-color: #a7110b;
+  color: #f6f6f5;
 }
 
 main {
@@ -113,6 +124,60 @@ main {
 .memo__btn {
   border-bottom: #acacac 1px solid;
   padding: 10px 0;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.3s;
+}
+.overlay.active {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: none;
+  opacity: 0;
+  background: #f6f6f5;
+  padding: 10px;
+}
+.modal__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+.modal__btns {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-between;
+}
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
 }
 
 /*# sourceMappingURL=view_memo.css.map */
