@@ -59,4 +59,6 @@ Technologies used in the project
 - Frontend: html js scss | _basic Frontend_
 - Git-Actions: Django Tests & Ruff linter | run tests and lint checks on push
 
-
+Known Issues
+===
+- First authorization page load very slow because it loads Js Vk SDK module
