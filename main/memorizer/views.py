@@ -1,5 +1,6 @@
 import json
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse, HttpResponseRedirect
 from memorizer.models import Memo
 from vk_auth.views import get_user_vk_data, update_user_vk_data
@@ -10,9 +11,8 @@ def redirect_to_main(request):
     return HttpResponseRedirect("/memorizer/memories")
 
 
+@login_required(login_url="/auth/")
 def memories_menu_view(request):
-    if request.user.is_anonymous or not request.user.is_authenticated:
-        return HttpResponseRedirect("/auth/")
     print(request)
     if request.method == "GET":
         vk_sdk_version = 5.199
@@ -46,9 +46,8 @@ def memories_menu_view(request):
         )
 
 
+@login_required(login_url="/auth/")
 def memo_view(request, pk):
-    if request.user.is_anonymous or not request.user.is_authenticated:
-        return HttpResponseRedirect("/auth/")
     print(request)
     if request.method == "GET":
         if Memo.objects.filter(id=pk).exists():
@@ -91,9 +90,8 @@ def memo_view(request, pk):
         return JsonResponse(response)
 
 
+@login_required(login_url="/auth/")
 def create_memo_view(request):
-    if request.user.is_anonymous or not request.user.is_authenticated:
-        return HttpResponseRedirect("/auth/")
     print(request)
     if request.method == "GET":
         return render(
@@ -126,9 +124,8 @@ def create_memo_view(request):
         return JsonResponse(response)
 
 
+@login_required(login_url="/auth/")
 def delete_memo(request, pk):
-    if request.user.is_anonymous or not request.user.is_authenticated:
-        return HttpResponseRedirect("/auth/")
     print(request)
     if request.method == "GET":
         if Memo.objects.filter(id=pk).exists() and (Memo.objects.get(id=pk).user == request.user):

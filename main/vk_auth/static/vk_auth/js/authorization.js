@@ -3,6 +3,7 @@ const VKID = window.VKIDSDK;
 VKID.Config.set({
   app: VK_APP_ID, // Идентификатор приложения.
   redirectUrl: "https://memorizer.testotheca.online/auth/process", // Адрес для перехода после авторизации.
+    state: "statetest12321321"
 });
 
 const oneTap = new VKID.OneTap();

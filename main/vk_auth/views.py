@@ -12,6 +12,7 @@ import requests
 
 # Create your views here.
 def auth_view(request):
+    print("auth view")
     return render(
         request=request,
         template_name="vk_auth/authorization.html",
@@ -22,6 +23,7 @@ def auth_view(request):
 
 
 def auth_processor(request):
+    print(request)
     if request.method == "GET":
         vk_sdk_version = 5.199
         payload = json.loads(request.GET.get("payload"))
@@ -29,6 +31,7 @@ def auth_processor(request):
             silent_token = payload["token"]
             uuid = payload["uuid"]
             response = exchange_silent_on_access_token(vk_sdk_version, silent_token, uuid, VK_APP_SERVER_KEY)
+            print(response)
             if "error_code" not in response:
                 access_token = response["access_token"]
                 vk_user_id = response["user_id"]
