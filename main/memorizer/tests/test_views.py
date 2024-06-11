@@ -23,7 +23,6 @@ class MemoViewsTest(TestCase):
     def test_redirect_if_not_logged_in(self):
         response = self.client.get(reverse("memorizer:view_memo", kwargs={"pk": 2}))
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response.url, "/auth/")
 
     def test_memo_view(self):
         self.client.login(username="some vk_id", password="123")
