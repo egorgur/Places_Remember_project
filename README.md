@@ -17,7 +17,7 @@ Features
 
 The authorization process includes granting access to your Vkontakte account main data (only first name; last name; profile photo) 
 
-img
+![image](https://github.com/egorgur/Places_Remember_project/assets/122800013/bed54139-25f3-41e2-9a2c-72afc2e080e3)
 
 After the authorization your account data will be shown on the main page 
 
@@ -27,11 +27,13 @@ This page shows all your memories
 
 you can make new memory or open the view-memory page and edit/delete the existing ones
 
-img
+![image](https://github.com/egorgur/Places_Remember_project/assets/122800013/25474316-2188-4cb8-a127-98c91cc29c59)
+
 
 also you can leave your account and be redirected onto the authorization page
 
-img
+![image](https://github.com/egorgur/Places_Remember_project/assets/122800013/f79093c0-4f8e-4676-a7cb-b7abbc895b3f)
+
 
 ### What's the memory?
 
@@ -41,11 +43,13 @@ The memory is an object that contains:
 - name of the memory
 - text of the memory
 
-img
+![image](https://github.com/egorgur/Places_Remember_project/assets/122800013/0ae724fb-9944-4497-8f59-66997063e145)
+
 
 Edit/delete memory
 
-img
+![image](https://github.com/egorgur/Places_Remember_project/assets/122800013/bde2b99a-e5ad-435a-ab78-adde97a97f02)
+
 
 Technologies used in the project
 ===
@@ -54,5 +58,9 @@ Technologies used in the project
 - Web-Framework: **Django** | _web framework_
 - Frontend: html js scss | _basic Frontend_
 - Git-Actions: Django Tests & Ruff linter | run tests and lint checks on push
+- Docker
+- Nginx
 
-
+Known Issues
+===
+- First authorization page load very slow because it loads Js Vk SDK module
