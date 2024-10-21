@@ -1,6 +1,5 @@
 Memorizer
 ===
-https://memorizer.testotheca.online
 
 This web-site allows to store your memories about any places in the world
 
